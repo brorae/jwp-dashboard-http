@@ -24,8 +24,8 @@ public class HttpRequestBody {
         char[] buffer = new char[contentLength];
         bufferedReader.read(buffer, 0, contentLength);
         final String requestBody = new String(buffer);
-        final Map<String, String> body = RequestURL.parsingQueryString(requestBody);
-        return new HttpRequestBody(body);
+        final Map<String, String> params = QueryParser.parsingQueryString(requestBody);
+        return new HttpRequestBody(params);
     }
 
     public String get(final String key) {
